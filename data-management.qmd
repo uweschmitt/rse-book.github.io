@@ -422,7 +422,9 @@ Open data initiatives of your country, as well as major international organizati
 In addition, open data organizations provide you with a publication channel for your data or with a data catalog that stores the data description. 
 Initiatives like [SDMX (Statistical Data and Meta Exchange)](https://sdmx.org/) aim to improve exchange of data *and* data descriptions. 
 Their XML-based format has become an international standard which led to the implementation of SDMX read and write routines in statistical software.
-Whether you think about the conditions of your own data publications or about a source for your own research project, make sure to consider open data. 
+Whether you think about the conditions of your own data publications or about a source for your own research project, make sure to consider open data. The *openwashdata* project I have been contributing to might be an hands-on inspiration to get a more concrete understanding of what open data is actually about. Among other things, the [openwashdata project](https://openwashdata.org) collects datasets from publications and re-publishes them in in machine readable format alongside their meta information. The data manipulation to reach this end is documented in reproducible fashion. The final results, R data packages, are published in freely available git repositories in the project's GitHub organization.
+
+>"openwashdata is an active global community that applies FAIR principles to data generated in the greater water, sanitation, and hygiene (WASH) sector" -- openwashdata.org
 
 
 
