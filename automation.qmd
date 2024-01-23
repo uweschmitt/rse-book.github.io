@@ -26,34 +26,34 @@ Here is a simple sketch of a *.gitlab-ci.yml* configuration that builds and test
 
 ```
 stages:
-- buildncheck
-- deploy_pack
+  - buildncheck
+  - deploy_pack
 
 test:
-image:
-name: some.docker.registry.com/some-image:0.2.0
-entrypoint:
-- ""
-stage: buildncheck
-artifacts:
-untracked: true
-script:
-- rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
-- install2.r --repos custom.mini.cran.ch .
-- R CMD build . --no-build-vignettes --no-manual
-- R CMD check --no-manual *.tar.gz
+  image:
+  name: some.docker.registry.com/some-image:0.2.0
+  entrypoint: [""]
+
+  stage: buildncheck
+  artifacts:
+    untracked: true
+  script:
+    - rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
+    - install2.r --repos custom.mini.cran.ch .
+    - R CMD build . --no-build-vignettes --no-manual
+    - R CMD check --no-manual *.tar.gz
 
 deploy_pack:
-only: 
-- main
-stage: deploy_pack
-image:
-name: byrnedo/alpine-curl
-entrypoint: [""]
-dependencies:
-- 'test'
-script:
-- do some more steps to login and deploy to server ...
+  only: 
+    - main
+  stage: deploy_pack
+  image:
+    name: byrnedo/alpine-curl
+    entrypoint: [""]
+  dependencies:
+    - 'test'
+  script:
+    - do some more steps to login and deploy to server ...
 
 ```
 
